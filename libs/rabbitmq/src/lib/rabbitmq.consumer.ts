@@ -2,8 +2,10 @@ import { Injectable, Logger } from '@nestjs/common';
 import { RabbitRPC, RabbitSubscribe } from '@golevelup/nestjs-rabbitmq';
 
 @Injectable()
-export class RabbitMQService {
-  private readonly logger = new Logger(RabbitMQService.name);
+export class RabbitMQConsumer {
+  private readonly logger = new Logger(RabbitMQConsumer.name);
+
+  // constructor(private readonly amqpConnection: AmqpConnection) {}
 
   @RabbitRPC({
     exchange: 'exchange_name',
@@ -25,7 +27,7 @@ export class RabbitMQService {
   }
 
 
-//   async publishEvent(data: any): Promise<void> {
-//     await this.amqpConnection.publish('exchange_name', 'event.route', data);
-//   }
+  // async publishMessage(data: any): Promise<void> {
+  //   await this.amqpConnection.publish('exchange_name', 'event.route', data);
+  // }
 }

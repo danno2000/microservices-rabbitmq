@@ -1,5 +1,6 @@
 import { Module, DynamicModule } from '@nestjs/common';
 import { RabbitMQModule as RMQModule } from '@golevelup/nestjs-rabbitmq';
+import { RabbitMQProducer } from './rabbitmq.producer';
 
 @Module({})
 export class RabbitMQModule {
@@ -18,7 +19,8 @@ export class RabbitMQModule {
           connectionInitOptions: { wait: false },
         }),
       ],
-      exports: [RMQModule],
+      providers: [RabbitMQProducer],
+      exports: [RabbitMQProducer],
     };
   }
 }
