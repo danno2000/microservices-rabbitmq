@@ -1,7 +1,12 @@
 const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin');
-const { join } = require('path');
+const { join, resolve } = require('path');
 
 module.exports = {
+  resolve: {
+    alias: {
+      '@massive/rabbitmq': resolve(__dirname, '../../libs/rabbitmq/src'),
+    },
+  },
   output: {
     path: join(__dirname, 'dist'),
   },

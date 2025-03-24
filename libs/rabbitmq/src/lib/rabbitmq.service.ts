@@ -23,4 +23,9 @@ export class RabbitMQService {
   async handleEvent(msg: any): Promise<void> {
     this.logger.log(`Received event: ${JSON.stringify(msg)}`);
   }
+
+
+//   async publishEvent(data: any): Promise<void> {
+//     await this.amqpConnection.publish('exchange_name', 'event.route', data);
+//   }
 }

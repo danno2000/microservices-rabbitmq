@@ -2,6 +2,6 @@ import { Module } from '@nestjs/common';
 import { RabbitMQModule } from '@massive/rabbitmq';
 
 @Module({
-  imports: [RabbitMQModule],
+  imports: [RabbitMQModule.register()],
 })
 export class AppModule {}

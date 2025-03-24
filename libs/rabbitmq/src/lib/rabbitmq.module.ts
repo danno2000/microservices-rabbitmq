@@ -14,7 +14,7 @@ export class RabbitMQModule {
               type: 'topic', // Or 'direct', 'fanout', etc.
             },
           ],
-          uri: process.env.RABBITMQ_URI || 'amqp://localhost:5672',
+          uri: process.env.RABBITMQ_URI || 'amqp://myuser:mypassword@localhost:5672',
           connectionInitOptions: { wait: false },
         }),
       ],
