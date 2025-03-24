@@ -11,6 +11,9 @@
     },
     {
       "path": "./apps/service1"
+    },
+    {
+      "path": "./apps/api"
     }
   ]
 }
