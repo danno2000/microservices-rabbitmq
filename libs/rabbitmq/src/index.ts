@@ -1,3 +1,3 @@
-export * from './lib/rabbitmq.module';
-export * from './lib/rabbitmq.producer';
-export * from './lib/rabbitmq.consumer';
+export * from './lib/rmq-exchange.module';
+export * from './lib/rmq-producer.service';
+export * from './lib/rmq-consumer.service';
