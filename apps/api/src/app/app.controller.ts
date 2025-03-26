@@ -35,7 +35,7 @@ export class AppController {
 
   } catch (e: any) {
     this.logger.error(e.message);
-    // throw e;
+    return {error: e.message};
   }
   }
 }

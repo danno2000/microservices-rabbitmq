@@ -5,7 +5,10 @@
   "scripts": {},
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@golevelup/nestjs-rabbitmq": "^5.7.0",
+    "@mui/material": "^6.4.8",
     "@nestjs/common": "^10.0.2",
     "@nestjs/config": "^4.0.1",
     "@nestjs/core": "^10.0.2",
