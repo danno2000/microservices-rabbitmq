@@ -9,7 +9,7 @@ export class AppService {
     exchange: 'my_exchange',
     routingKey: 'services.service1',
   })
-  async handleGetUserProfile(payload: any): Promise<any> {
+  async handleRpcRequest(payload: any): Promise<any> {
     return Promise.resolve({ ...payload, service1Bits: this.getServiceStats() });
   }
 
@@ -20,4 +20,6 @@ export class AppService {
       timestamp: Date.now()
     }
   }
+
+  getSomethingElse() {}
 }

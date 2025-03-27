@@ -1,0 +1,70 @@
+services:
+  api:
+    image: node-pnpm:latest
+    working_dir: /app
+    command: sh -c "pnpm nx serve api"
+    container_name: api
+    ports:
+      - ${GATEWAY_PORT}:${GATEWAY_PORT}
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+      # - pnpm_install:/usr/local/lib/node_modules/pnpm
+    networks:
+      - massive_network
+    env_file:
+      - .env
+      - .env.containers
+
+  service1:
+    image: node-pnpm:latest
+    working_dir: /app
+    command: sh -c "pnpm nx serve service1"
+    container_name: service1
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+      # - pnpm_install:/usr/local/lib/node_modules/pnpm
+    networks:
+      - massive_network
+    env_file:
+      - .env
+      - .env.containers
+
+  service2:
+    image: node-pnpm:latest
+    working_dir: /app
+    command: sh -c "pnpm nx serve service2"
+    container_name: service2
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+      # - pnpm_install:/usr/local/lib/node_modules/pnpm
+    networks:
+      - massive_network
+    env_file:
+      - .env
+      - .env.containers
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - massive_network
+
+volumes:
+  rabbitmq_data:
+  node_modules:
+  # pnpm_install:
+
+networks:
+  massive_network:
+    driver: bridge

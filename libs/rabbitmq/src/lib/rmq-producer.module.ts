@@ -8,7 +8,7 @@ export class RMQProducerModule {
   static register(): DynamicModule {
     return {
       module: RMQProducerModule,
-      imports: [RMQExchangeModule.register()],
+      imports: [RMQExchangeModule.register(/* todo: param overrides */)],
       providers: [RMQProducerService],
       exports: [RMQProducerService],
     };

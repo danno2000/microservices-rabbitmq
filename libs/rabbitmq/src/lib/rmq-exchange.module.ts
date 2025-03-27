@@ -1,6 +1,14 @@
 import { Module, DynamicModule } from '@nestjs/common';
 import { RabbitMQModule as RMQModule } from '@golevelup/nestjs-rabbitmq';
-// import { RMQProducer } from './rmq-producer.service';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const {
+  RABBITMQ_HOST,
+  RABBITMQ_PORT,
+  RABBITMQ_USER,
+  RABBITMQ_PASS,
+} = process.env;
 
 @Module({})
 export class RMQExchangeModule {
@@ -9,9 +17,9 @@ export class RMQExchangeModule {
       module: RMQExchangeModule,
       imports: [
         RMQModule.forRoot({
-          exchanges: [{ name: 'exchange_name', type: 'topic' }],
-          uri: process.env.RABBITMQ_URI || 'amqp://myuser:mypassword@localhost:5672',
-          connectionInitOptions: { wait: false },
+          exchanges: [{ name: 'my_exchange', type: 'topic' }],
+          uri: `amqp://${RABBITMQ_USER}:${RABBITMQ_PASS}@${RABBITMQ_HOST}:${RABBITMQ_PORT}`,
+          connectionInitOptions: { wait: true },
         }),
       ],
       // providers: [RMQProducer],
