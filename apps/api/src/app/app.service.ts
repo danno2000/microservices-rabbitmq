@@ -2,7 +2,8 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getData(): { message: string } {
-    return { message: 'Hello API' };
+
+  getContainerStats(payload: any): Promise<any> {
+    return Promise.resolve({ ...payload, service1Timestamp: Date.now() });
   }
 }

@@ -6,11 +6,9 @@ export class AppService {
 
   @RabbitRPC({
     exchange: 'my_exchange',
-    routingKey: 'parent.child',
-    // queue: 'my_queue',
+    routingKey: 'services.service1',
   })
   async handleGetUserProfile(payload: any): Promise<any> {
-    // Business logic here
-    return Promise.resolve({ someting: 'else', service1Timestamp: Date.now() });
+    return Promise.resolve({ ...payload, service1Timestamp: Date.now() });
   }
 }

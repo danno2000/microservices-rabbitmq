@@ -1,15 +1,11 @@
-import styled from 'styled-components';
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import { Container } from '@mui/material';
+import ServiceForm from './service-form';
 
 export function App() {
   return (
-    <StyledApp>
-      <NxWelcome title="@massive/web" />
-    </StyledApp>
+    <Container>
+      <ServiceForm />
+    </Container>
   );
 }
 
