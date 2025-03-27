@@ -5,6 +5,7 @@ module.exports = {
   resolve: {
     alias: {
       '@massive/rabbitmq': resolve(__dirname, '../../libs/rabbitmq/src'),
+      '@massive/server-stats': resolve(__dirname, '../../libs/server-stats/src'),
     },
   },
   output: {

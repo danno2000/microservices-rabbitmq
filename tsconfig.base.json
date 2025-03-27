@@ -18,7 +18,8 @@
     "target": "es2022",
     "baseUrl": ".",
     "paths": {
-      "@massive/rabbitmq": ["libs/rabbitmq/src/index.ts"]
+      "@massive/rabbitmq": ["libs/rabbitmq/src/index.ts"],
+      "@massive/server-stats": ["libs/server-stats/src/index.ts"]
     }
   }
 }

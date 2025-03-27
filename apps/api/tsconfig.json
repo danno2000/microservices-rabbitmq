@@ -7,6 +7,9 @@
       "path": "../../libs/rabbitmq"
     },
     {
+      "path": "../../libs/server-stats"
+    },
+    {
       "path": "./tsconfig.app.json"
     }
   ]

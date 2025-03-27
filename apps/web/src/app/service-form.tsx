@@ -39,6 +39,12 @@ const DEFAULT_STATE = {
 
 type ServiceNames = keyof typeof DEFAULT_STATE.services;
 
+// const tryCatch = (fn) => {
+//   try {
+//     fn.call();
+//   } catch () {}
+// }
+
 export function ServiceForm() {
   const [state, setState] = useState(DEFAULT_STATE);
 
@@ -59,12 +65,16 @@ export function ServiceForm() {
 
   const handleSendClick: MouseEventHandler<HTMLButtonElement> =
     useCallback(async () => {
-      const payload = {
-        services: state.services,
-        payload: JSON.parse(state.payload),
-      };
-      const response = await post('http://localhost:4000/api', payload);
-      setState((state) => ({ ...state, response }));
+      try {
+        const payload = {
+          services: state.services,
+          payload: JSON.parse(state.payload),
+        };
+        const response = await post('http://localhost:4000/api', payload);
+        setState((state) => ({ ...state, response }));
+      } catch (error: any) {
+        setState((state) => ({ ...state, response: { error: error.message } }));
+      }
     }, [state]);
 
   return (

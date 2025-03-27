@@ -24,7 +24,7 @@
           "watchDepsName": "watch-deps"
         }
       },
-      "exclude": ["libs/rabbitmq/*"]
+      "exclude": ["libs/rabbitmq/*", "libs/server-stats/*"]
     },
     {
       "plugin": "@nx/react/router-plugin",
@@ -53,7 +53,7 @@
     },
     {
       "plugin": "@nx/js/typescript",
-      "include": ["libs/rabbitmq/*"],
+      "include": ["libs/rabbitmq/*", "libs/server-stats/*"],
       "options": {
         "typecheck": {
           "targetName": "typecheck"

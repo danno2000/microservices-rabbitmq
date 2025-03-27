@@ -4,6 +4,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/server-stats"
+    },
+    {
       "path": "../../libs/rabbitmq"
     },
     {

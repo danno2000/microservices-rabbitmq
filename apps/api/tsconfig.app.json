@@ -15,6 +15,9 @@
   "exclude": [],
   "references": [
     {
+      "path": "../../libs/server-stats/tsconfig.lib.json"
+    },
+    {
       "path": "../../libs/rabbitmq/tsconfig.lib.json"
     }
   ]

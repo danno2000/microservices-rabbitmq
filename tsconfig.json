@@ -4,9 +4,6 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/ui"
-    },
-    {
       "path": "./libs/rabbitmq"
     },
     {
@@ -20,6 +17,9 @@
     },
     {
       "path": "./apps/web"
+    },
+    {
+      "path": "./libs/server-stats"
     }
   ]
 }

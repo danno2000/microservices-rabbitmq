@@ -1,9 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { getServerStats } from '@massive/server-stats';
 
 @Injectable()
 export class AppService {
 
-  getContainerStats(payload: any): Promise<any> {
-    return Promise.resolve({ ...payload, service1Timestamp: Date.now() });
+  getServiceStats() {
+    return {
+      ...getServerStats(),
+      name: 'API Gateway',
+      timestamp: Date.now()
+    }
   }
 }
