@@ -2,6 +2,8 @@
 
 This intention behind this repo is to demonstrate a simple microservices event driven architecture using RabbitMQ.
 
+![Simple microservices event driven architecture example](microservices-event-driven.drawio.png)
+
 ## Prerequisites
 
 Install Docker Desktop, NodeJS and pnpm.
