@@ -10,7 +10,7 @@ Install Docker Desktop, NodeJS and pnpm.
 
 ```sh
 # run the setup script
-./setup/containers.sh
+pnpm setup-containers.sh
 
 # launch the containers
 docker compose up -d
@@ -24,7 +24,7 @@ pnpm nx serve web
 
 ```sh
 # run the setup script
-./setup/localhost.sh
+pnpm setup-localhost.sh
 
 #terminal window 1
 pnpm nx serve web
