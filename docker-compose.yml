@@ -9,7 +9,6 @@ services:
     volumes:
       - .:/app
       - node_modules:/app/node_modules
-      # - pnpm_install:/usr/local/lib/node_modules/pnpm
     networks:
       - massive_network
     env_file:
@@ -24,7 +23,6 @@ services:
     volumes:
       - .:/app
       - node_modules:/app/node_modules
-      # - pnpm_install:/usr/local/lib/node_modules/pnpm
     networks:
       - massive_network
     env_file:
@@ -39,7 +37,6 @@ services:
     volumes:
       - .:/app
       - node_modules:/app/node_modules
-      # - pnpm_install:/usr/local/lib/node_modules/pnpm
     networks:
       - massive_network
     env_file:
@@ -63,7 +60,6 @@ services:
 volumes:
   rabbitmq_data:
   node_modules:
-  # pnpm_install:
 
 networks:
   massive_network:

@@ -13,4 +13,4 @@ docker run -d \
   -e RABBITMQ_DEFAULT_PASS=$RABBITMQ_PASS \
   rabbitmq:3-management
 
-  pnpm install
+pnpm install
