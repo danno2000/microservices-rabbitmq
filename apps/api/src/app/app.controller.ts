@@ -8,40 +8,39 @@ export class AppController {
   
   constructor(private readonly appService: AppService, private readonly amqp: AmqpConnection) {}
 
+  // todo: move the execution verbosity to the service side of this module
+  // and keep the controller very high-level for maximum readability.
+
   @Post()
   async publishMessage(@Body() {payload, services}: any) {
     try {
-      let response = {...payload, apiBits: this.appService.getServiceStats()};
+      let data = {...payload, apiBits: this.appService.getServiceStats()};
 
       if (services.service1) {
-        response = await this.amqp.request({
+        data = await this.amqp.request({
           exchange: 'my_exchange',
           routingKey: 'services.service1',
-          payload: response,
+          payload: data,
           timeout: 5000,
         });
       }
 
       if (services.service2) {
-        response = await this.amqp.request({
+        data = await this.amqp.request({
           exchange: 'my_exchange',
           routingKey: 'services.service2',
-          payload: response,
+          payload: data,
           timeout: 5000,
         });
       }
-
-
     
-    return {
-      status: 'OK',
-      code: 200,
-      data: response,
-    };
+      // todo: research NestJS' success & error
+      // codes best practices.
+      return { data };
 
-  } catch (e: any) {
-    this.logger.error(e.message);
-    return {error: e.message};
-  }
+    } catch (e: any) {
+      this.logger.error(e.message);
+      return {error: e.message};
+    }
   }
 }

@@ -39,12 +39,6 @@ const DEFAULT_STATE = {
 
 type ServiceNames = keyof typeof DEFAULT_STATE.services;
 
-// const tryCatch = (fn) => {
-//   try {
-//     fn.call();
-//   } catch () {}
-// }
-
 export function ServiceForm() {
   const [state, setState] = useState(DEFAULT_STATE);
 
