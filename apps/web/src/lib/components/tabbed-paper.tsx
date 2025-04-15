@@ -1,17 +1,19 @@
 import { FC, ReactNode, useMemo, useState } from 'react';
-import Card from '@mui/material/Card';
-import Divider from '@mui/material/Divider';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import CardContent from '@mui/material/CardContent';
+import Paper from '@mui/material/Paper';
 
-type TabbedCardProps = {
+type TabbedPaperProps = {
   children?: ReactNode | ((selectedTab: number) => ReactNode);
   panels?: ReadonlyArray<ReactNode>;
   tabs: ReadonlyArray<string>;
 };
 
-export const TabbedCard: FC<TabbedCardProps> = ({ children, panels, tabs }) => {
+export const TabbedPaper: FC<TabbedPaperProps> = ({
+  children,
+  panels,
+  tabs,
+}) => {
   const [selectedTab, setSelectedTab] = useState(0);
 
   const handleTabClick = (_event: React.SyntheticEvent, tab: number) => {
@@ -32,15 +34,14 @@ export const TabbedCard: FC<TabbedCardProps> = ({ children, panels, tabs }) => {
   }, [panels, children, selectedTab]);
 
   return (
-    <Card>
+    <Paper elevation={2} sx={{ p: 3 }}>
       <Tabs value={selectedTab} onChange={handleTabClick}>
         {tabElements}
       </Tabs>
-      <Divider />
 
-      <CardContent>{resolvedChildren}</CardContent>
-    </Card>
+      {resolvedChildren}
+    </Paper>
   );
 };
 
-export default TabbedCard;
+export default TabbedPaper;

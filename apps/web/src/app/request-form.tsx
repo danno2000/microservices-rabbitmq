@@ -29,9 +29,10 @@ export const RequestDetails: FC<RequestDetailsProps> = ({ onSend }) => {
   return (
     <>
       <FormControl
-        sx={{ width: '50%', paddingRight: 3 }}
+        sx={{ paddingRight: 3 }}
         component="fieldset"
         variant="standard"
+        fullWidth
       >
         <FormLabel component="legend">Payload</FormLabel>
         <FormGroup>
@@ -41,13 +42,13 @@ export const RequestDetails: FC<RequestDetailsProps> = ({ onSend }) => {
             rows={10}
             defaultValue={requestState.payload}
             onChange={handlePayloadChange}
+            title="Payload"
+            sx={{ width: '100%' }}
           />
-        </FormGroup>
-      </FormControl>
 
-      <FormControl component="fieldset" variant="standard">
-        <FormLabel component="legend">Microservices to Visit</FormLabel>
-        <FormGroup>
+          <FormLabel component="legend" sx={{ marginTop: 3 }}>
+            Microservices to Visit
+          </FormLabel>
           <FormControlLabel
             control={
               <Checkbox
@@ -68,11 +69,11 @@ export const RequestDetails: FC<RequestDetailsProps> = ({ onSend }) => {
             }
             label="Decorate payload with Service2"
           />
-        </FormGroup>
 
-        <Button variant="contained" endIcon={<SendIcon />} onClick={onSend}>
-          Send
-        </Button>
+          <Button variant="contained" endIcon={<SendIcon />} onClick={onSend}>
+            Send
+          </Button>
+        </FormGroup>
       </FormControl>
     </>
   );

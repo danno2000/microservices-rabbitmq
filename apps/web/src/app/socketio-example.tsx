@@ -10,7 +10,7 @@ export const SocketIOExample = () => {
   const { requestState, setResponse } = useRequestState();
   const socket = useSocketIO();
 
-  const handleSendClick = useCallback(async () => {
+  const handleSend = useCallback(async () => {
     try {
       const payload = {
         services: requestState.services,
@@ -22,23 +22,27 @@ export const SocketIOExample = () => {
       );
 
       setResponse(response);
-    } catch (err: unknown) {
-      const error = err instanceof Error ? err.message : err;
-      setResponse({ error });
+    } catch (error: unknown) {
+      setResponse({ error: error instanceof Error ? error.message : error });
     }
   }, [requestState]);
 
   return (
-    <>
-      <Box component="section" sx={{ marginTop: 3 }}>
+    <Box
+      sx={{
+        display: 'flex',
+        '& > div': { flexBasis: 1, flexGrow: 1, marginTop: 3 },
+      }}
+    >
+      <Box>
         <Typography variant="h6">Request</Typography>
-        <RequestDetails onSend={handleSendClick} />
+        <RequestDetails onSend={handleSend} />
       </Box>
-      <Box component="section" sx={{ marginTop: 3 }}>
+      <Box sx={{ marginLeft: 3 }}>
         <Typography variant="h6">Response via SocketIO</Typography>
         <ReactJson src={requestState.response} />
       </Box>
-    </>
+    </Box>
   );
 };
 

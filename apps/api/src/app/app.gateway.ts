@@ -15,10 +15,10 @@ import { Logger } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @WebSocketGateway({ cors: { origin: '*' } })
-export class EventsGateway
+export class AppGateway
   implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect
 {
-  private logger: Logger = new Logger('EventsGateway');
+  private logger: Logger = new Logger('AppGateway');
   constructor(private readonly appService: AppService) {}
 
   @WebSocketServer()
